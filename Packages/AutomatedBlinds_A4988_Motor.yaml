@@ -10,9 +10,5 @@ stepper:
     acceleration: 800  # Faster acceleration
     deceleration: 800
 
-dashboard_import:
-  package_import_url: github://jackson-gross/ESPTiltBlinds/Packages/AutomatedBlinds_A4988_Motor.yaml@main
-  import_full_config: false
-
 packages:
   AutomatedBlinds.common: github://jackson-gross/ESPTiltBlinds/Packages/AutomatedBlinds_Include_For_Common.yaml@main
