@@ -1,12 +1,16 @@
 # ============================================================================
+# SUBSTITUTIONS
+# ============================================================================
+substitutions:
+  name: "automated-tilt-blinds"
+  friendly_name: "Tilt Blinds"
+  project_name: "Jackson Gross.Smart Tilt Blinds"
+  version: "1.0"
+
+# ============================================================================
 # DEVICE CONFIGURATION
 # ============================================================================
 esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
-  project:
-    name: "Jackson-Gross.ESP-Tilt-Blinds"
-    version: "1.0"
   on_boot:
     priority: -100
     then:
@@ -31,7 +35,6 @@ esp32:
 logger:
   level: INFO
 
-
 # ============================================================================
 # GLOBAL VARIABLES - Calibration & Position Storage
 # ============================================================================
@@ -54,11 +57,6 @@ globals:
   - id: calibration_step
     type: int
     initial_value: '0'  # 0=idle, 1=moving to extreme 1, 2=ready for extreme 2
-  
-  - id: tilt_speed
-    type: int
-    restore_value: yes
-    initial_value: '500'  # User adjustable speed
   
   - id: calibration_time
     type: float
@@ -471,30 +469,6 @@ button:
 # ============================================================================
 number:
   - platform: template
-    name: "Tilt Speed"
-    id: tilt_speed_config
-    entity_category: config
-    min_value: 50
-    max_value: 1000
-    step: 10
-    initial_value: 500
-    optimistic: true
-    restore_value: true
-    unit_of_measurement: "steps/s"
-    mode: slider
-    on_value:
-      then:
-        - globals.set:
-            id: tilt_speed
-            value: !lambda 'return (int)x;'
-        - stepper.set_speed:
-            id: my_stepper
-            speed: !lambda 'return x;'
-        - logger.log:
-            format: "Tilt speed set to %d steps/s (takes effect after restart)"
-            args: ['(int)x']
-  
-  - platform: template
     name: "Calibration Time"
     id: calibration_time_config
     entity_category: config
@@ -517,7 +491,7 @@ number:
 
 
 # ============================================================================
-# SWITCHES - LED & Features
+# SWITCHES - LED & Attem
 # ============================================================================
 switch:
   - platform: gpio
