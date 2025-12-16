@@ -11,4 +11,4 @@ stepper:
     deceleration: 800
 
 packages:
-  AutomatedBlinds.common: github://jackson-gross/ESPTiltBlinds/Packages/AutomatedBlinds_Include_For_Common.yaml@main
+  AutomatedBlinds.common: github://jackson-gross/ESPHomeTiltBlinds/Packages/AutomatedBlinds_Include_For_Common.yaml@main
