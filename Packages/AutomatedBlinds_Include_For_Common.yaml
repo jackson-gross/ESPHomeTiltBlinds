@@ -5,7 +5,7 @@ esphome:
   name: ${name}
   friendly_name: ${friendly_name}
   project:
-    name: "jackson-gross.esptiltblinds"
+    name: "Jackson-Gross.ESP-Tilt-Blinds"
     version: "1.0"
   on_boot:
     priority: -100
@@ -379,12 +379,14 @@ button:
   - platform: template
     name: "Start Calibration"
     id: start_calibration_button
+    entity_category: config
     on_press:
       - script.execute: calibrate_script
   
   - platform: template
     name: "Set Extreme 1"
     id: set_extreme_1_button
+    entity_category: config
     on_press:
       - stepper.report_position:
           id: my_stepper
@@ -397,6 +399,7 @@ button:
   - platform: template
     name: "Set Extreme 2"
     id: set_extreme_2_button
+    entity_category: config
     on_press:
       - globals.set:
           id: max_position
@@ -443,6 +446,7 @@ button:
   - platform: template
     name: "Jog Open 150 Steps"
     id: jog_forward
+    entity_category: config
     on_press:
       - stepper.set_target:
           id: my_stepper
@@ -451,6 +455,7 @@ button:
   - platform: template
     name: "Jog Close 150 Steps"
     id: jog_backward
+    entity_category: config
     on_press:
       - stepper.set_target:
           id: my_stepper
@@ -468,6 +473,7 @@ number:
   - platform: template
     name: "Tilt Speed"
     id: tilt_speed_config
+    entity_category: config
     min_value: 50
     max_value: 1000
     step: 10
@@ -491,6 +497,7 @@ number:
   - platform: template
     name: "Calibration Time"
     id: calibration_time_config
+    entity_category: config
     min_value: 1.0
     max_value: 10.0
     step: 0.5
@@ -522,6 +529,7 @@ switch:
   - platform: template
     name: "Enable Movement LED"
     id: movement_led_enabled
+    entity_category: config
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
 
