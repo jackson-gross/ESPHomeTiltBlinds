@@ -541,7 +541,3 @@ interval:
             id(my_blind).current_operation = COVER_OPERATION_IDLE;
           }
           id(my_blind).publish_state();
-
-dashboard_import:
-  package_import_url: github://jackson-gross/ESPTiltBlinds/Packages/AutomatedBlinds_Include_For_Common.yaml@main
-  import_full_config: false
